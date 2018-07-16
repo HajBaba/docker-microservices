@@ -27,6 +27,16 @@ we offer two method for up and running these services.
 - normal method with docker run
 - fast method with docker-compose
 
+but first we should build our own web server
+## build a new image
+we need a dockerfile and place these instructions in it :
+```
+FROM php:7.2-apache
+COPY config/php.ini /usr/local/etc/php/
+```
+this will use your custom php.ini. you can install more packages with ```RUN``` command. (if you need)
+two build a image from docker file you should use this ```docker build -t "simple_gui:tag" . ``` command.
+
 ## 1. docker run method
 Follow the instructions below :
 
