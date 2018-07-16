@@ -46,9 +46,9 @@ docker exec -it db_service mysql -u root -p
 with this command you can go to the container file system.
 
 ```
-create database cc_project_database;
-CREATE USER 'auth_service_user'@'%' IDENTIFIED BY 'Auth_service@1397';
-GRANT ALL ON cc_project_database.* TO 'auth_service_user'@'%';
+mysql> create database cc_project_database;
+mysql> CREATE USER 'auth_service_user'@'%' IDENTIFIED BY 'Auth_service@1397';
+mysql> GRANT ALL ON cc_project_database.* TO 'auth_service_user'@'%';
 mysql> source cc_project_database.sql;
 ```
 
