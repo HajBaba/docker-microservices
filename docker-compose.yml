@@ -1,0 +1,51 @@
+version: '3.1'
+
+services:
+
+  db_service:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: qwer1234
+
+  auth_service:
+    image: makbn/cc-authentication-service:v2
+    links:
+      - "db_service:db_service_host"
+    ports:
+      - "8080:8080"
+    command: sleep 1000000000
+
+  GUI:
+    image: php:ctm
+    ports: 
+      - "80:80"
+    volumes:
+      - /home/reza/GUI:/var/www/html
+
+  EDU:
+    image: php:ctm
+    links:
+      - "db_service:db_service_host"
+    ports: 
+      - "82:80"
+    volumes:
+      - /home/reza/EDU:/var/www/html
+
+  LIB:
+    image: php:ctm
+    links:
+      - "db_service:db_service_host"
+    ports: 
+      - "83:80"
+    volumes:
+      - /home/reza/LIB:/var/www/html
+
+  FOOD:
+    image: php:ctm
+    links:
+      - "db_service:db_service_host"
+    ports: 
+      - "84:80"
+    volumes:
+      - /home/reza/FOOD:/var/www/html
