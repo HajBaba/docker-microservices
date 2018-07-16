@@ -74,5 +74,12 @@ docker run -d -p 84:80 --name FOOD --link db_service:db_service_host -v /home/re
 ```
 these command will binding a specific directory in host file system to a directory in container file system. so you can manage your code in your own OS and changes are made in the container.
 
+## 2. docker-compose method
+in this method we can run multiple container with one command. we can use ```docker-compose up```. this command will automaticly run and manage the container we mentioned in a docker-compose.yml 
+
+it works simply and if you want to remove the containers you can use ```docker-compose down```. it will stop and remove containers. docker-compose is like rum method but you can use it many times.
+
+there is one more problem in this method. if you see the yml file you find out there is no definition for database or tables. to solve this problem you can build a new image from mysql image and before run compose file run querys on that.
+
 
 
