@@ -35,7 +35,7 @@ FROM php:7.2-apache
 COPY config/php.ini /usr/local/etc/php/
 ```
 this will use your custom php.ini. you can install more packages with ```RUN``` command. (if you need)
-two build a image from docker file you should use this ```docker build -t "simple_gui:tag" . ``` command.
+two build a image from docker file you should use this ```docker build -f "dockerfile-location" -t "simple_gui:tag" . ``` command.
 
 ## 1. docker run method
 Follow the instructions below :
